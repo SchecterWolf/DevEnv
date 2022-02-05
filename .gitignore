@@ -1,0 +1,4 @@
+lib/*
+projects/*
+vendorsrc
+*.swp

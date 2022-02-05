@@ -1,0 +1,105 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" My plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'a.vim'
+Plugin 'tpope/vim-commentary'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_config_file = '.syntastic_includes'
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_remove_include_errors = 1
+let g:syntastic_quiet_messages = { 'regex': 'Serial' }
+
+" vim-commentary settings
+autocmd FileType *.ino setlocal commentstring=//\ %s
+
+" My settings
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
+set nowrap
+set smartindent
+set expandtab
+set smarttab
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set hlsearch
+set number
+set clipboard=unnamedplus
+
+autocmd Filetype ino,c,cpp set cindent
+
+" Make vim treat arduino file types as cpp types
+"au BufRead,BufNewFile *.ino set filetype=cpp
+
+" My commands
+:command W w
+:command Q q
+:command Wq wq
+:command WQ wq
+:command SC SyntasticCheck clear
+
+" My remaps
+nnoremap <C-S-j> <C-d>
+nnoremap <C-S-k> <C-u>
+nnoremap <C-S-h> ^
+nnoremap <C-S-l> $
+
+" Dev-tool plugins
+source ~/Dev/tools/tools-plugin.vim
+
