@@ -97,7 +97,8 @@ alias python='/usr/bin/python3'
 alias lvim='/usr/bin/vim -c "normal '\''0"'
 alias gs='/usr/bin/git status'
 alias ge='/usr/bin/git commit -a --allow-empty-message -m ""'
-alias arduino-ide='/home/synth/Downloads/arduino-1.8.13/arduino'
+alias arduino-ide='$HOME/Downloads/arduino-1.8.13/arduino'
+alias clip='xclip -sel clip'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -130,7 +131,7 @@ if ! shopt -oq posix; then
 fi
 
 # My paths
-PATH=$PATH:/home/synth/Dev/tools:/home/synth/.local/bin
+PATH=$PATH:$HOME/Dev/tools:$HOME/.local/bin
 
 # My ENVs
 export VISUAL=vim
