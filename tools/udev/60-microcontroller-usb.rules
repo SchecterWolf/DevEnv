@@ -1,0 +1,3 @@
+# Rules for microcontrollers connected via USB
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd*", RUN+="/usr/local/sbin/mount-microcontroller-usb.sh add %k"
+ACTION=="remove", SUBSYSTEM=="block", KERNEL=="sd*", RUN+="/usr/local/sbin/mount-microcontroller-usb.sh remove %k"

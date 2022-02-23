@@ -36,7 +36,6 @@ LIB_SAVE_LOCATION="${MOUNT_LOCATION}lib/"
 SAVE_LOCATION="${MOUNT_LOCATION}$CODE_MAIN_FILE"
 LIB_SRC_LOCATION="$HOME/Dev/lib/"
 
-
 RESET_LIBS=0
 BUILD_MPY=0
 LOAD_ACCESSORIES=0
@@ -82,6 +81,12 @@ if [ -z $SAVE_FILE ]; then
 fi
 
 set -e
+
+# Make sure the microcontroller dir exists before continuing
+if [ ! -d "$MOUNT_LOCATION" ]; then
+    >&2 echo "Mount location does not exist: $MOUNT_LOCATION"
+    exit 1
+fi
 
 copy_py() {
 	if [ "$BUILD_MPY" -eq 1 ]; then

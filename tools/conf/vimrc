@@ -82,6 +82,7 @@ set hlsearch
 set number
 set clipboard=unnamedplus
 
+syntax on
 autocmd Filetype ino,c,cpp set cindent
 
 " Make vim treat arduino file types as cpp types

@@ -9,10 +9,19 @@
 " dev-tool script description
 
 " Function wrappers for the dev-tools scripts
-function! LoadCPython(...)
+function! LoadCPython(sudo, ...)
 	w
 	:let l:args = expand('%:p').' '.join(a:000)
-	execute "!write-out-cpython.sh ".l:args
+    :let l:sudo = ""
+    :if a:sudo
+        :let l:sudo = "sudo "
+    :endif
+    :let l:dev="DevEnv"
+    :if !empty(glob("/home/$USER/Dev"))
+        :let l:dev="Dev"
+    :endif
+
+    execute "!".l:sudo."/home/$USER/".l:dev."/tools/write-out-cpython.sh ".l:args
 endfunction
 function! ArduinoCompile(...)
 	w
@@ -21,6 +30,9 @@ function! ArduinoCompile(...)
 endfunction
 
 " Custom command for the wrapper functions
-:command -nargs=* CC call LoadCPython(<f-args>)
+:command -nargs=* CC call LoadCPython(0, <f-args>)
 :command -nargs=* AA call ArduinoCompile(<f-args>)
+
+" Use this command when the microcontroller 'fs' can only be accessed by root
+:command -nargs=* CS call LoadCPython(1, <f-args>)
 
