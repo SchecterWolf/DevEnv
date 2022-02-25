@@ -62,6 +62,8 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_remove_include_errors = 1
 let g:syntastic_quiet_messages = { 'regex': 'Serial' }
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
 
 " vim-commentary settings
 autocmd FileType *.ino setlocal commentstring=//\ %s
@@ -94,6 +96,7 @@ autocmd Filetype ino,c,cpp set cindent
 :command Wq wq
 :command WQ wq
 :command SC SyntasticCheck clear
+:command F echom expand('%:p')
 
 " My remaps
 nnoremap <C-S-j> <C-d>

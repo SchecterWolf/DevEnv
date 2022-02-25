@@ -15,7 +15,7 @@ Script for installing the adafruit circuitpython booloader onto a microcontrolle
 that supports it.
 The controller flag indicates which board is being used
 
-Usage: $(basename "$0") <Controller flag> <CPython download link>
+Usage: $(basename "$0") <Controller flag> [CPython download link]
 
     -N      NUKEs the controllers flash memory
 

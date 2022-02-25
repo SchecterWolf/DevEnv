@@ -94,7 +94,7 @@ if [[ $DEVICE =~ ^sd[a-z]1$ ]]; then
 
         # RM the user dir if there are no more mount points
         if [ ! "$(/usr/bin/ls -A /media/pi)" ]; then
-            logger "/media/$USR dir is empting, RMing it"
+            logger "/media/$USR dir is emptying, RMing it"
             rm -rf "/media/$USR"
         fi
     fi
